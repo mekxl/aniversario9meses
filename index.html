@@ -103,6 +103,27 @@
   <p>Você é a pessoa que eu mais amo na minha vida. Eu sou infinitamente feliz por ter você na minha vida. Eu amo você pra CARALHO</p>
 
   <button onclick="mostrarSurpresa()">Crica aqui</button>
+  .explosao-coracoes {
+    position: absolute;
+    font-size: 24px;
+    animation: explodir 1s ease-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes explodir {
+    0% {
+      transform: scale(0.5) translate(0, 0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5) translate(var(--x), var(--y));
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.5) translate(var(--x), var(--y));
+      opacity: 0;
+    }
+  }
 
   <div id="surpresa">
     <p>Você sabia que me faz feliz todos os dias, só por existir? Tipo, você é tão FODA que eu agradeço ao papai do céu por ter você comigo. Eu amo você MUUUUUUUUUUUUUITO</p>
