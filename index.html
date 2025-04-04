@@ -71,7 +71,33 @@
 </head>
 <body>
 
-  <div class="hearts">💖💖💖</div>
+<script>
+  function criarCoracao() {
+    const coracoes = ["💙", "🩷"];
+    const coracao = document.createElement("div");
+    coracao.className = "coracao";
+    coracao.textContent = coracoes[Math.floor(Math.random() * coracoes.length)];
+    
+    // Define posição aleatória na tela
+    coracao.style.left = Math.random() * 100 + "vw";
+    
+    // Define tamanho aleatório
+    coracao.style.fontSize = Math.random() * 30 + 15 + "px";
+    
+    document.body.appendChild(coracao);
+
+    // Remove o coração após a animação
+    setTimeout(() => {
+      coracao.remove();
+    }, 5000);
+  }
+
+  // Criando os corações constantemente
+  setInterval(criarCoracao, 300);
+</script>
+
+  
+  <div class="hearts">🩷💙🩷💙</div>
   <h1>🩷 FELIZ NOVE MESES, MEU AMOR!!! 💙</h1>
   <p>Hoje faz mais um mês que eu estou ao seu lado, já são 9 😁😁😁😁😁</p>
   <p>Você é a pessoa que eu mais amo na minha vida. Eu sou infinitamente feliz por ter você na minha vida. Eu amo você pra CARALHO</p>
