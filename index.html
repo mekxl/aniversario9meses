@@ -102,29 +102,47 @@
   <p>Hoje faz mais um mês que eu estou ao seu lado, já são 9 😁😁😁😁😁</p>
   <p>Você é a pessoa que eu mais amo na minha vida. Eu sou infinitamente feliz por ter você na minha vida. Eu amo você pra CARALHO</p>
 
-  <button onclick="mostrarSurpresa()">Crica aqui</button>
-  .explosao-coracoes {
-    position: absolute;
-    font-size: 24px;
-    animation: explodir 1s ease-out forwards;
-    pointer-events: none;
-  }
+   <button onclick="mostrarSurpresa()">Crica aqui</button>
 
-  @keyframes explodir {
-    0% {
-      transform: scale(0.5) translate(0, 0);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.5) translate(var(--x), var(--y));
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0.5) translate(var(--x), var(--y));
-      opacity: 0;
-    }
-  }
+    <div id="surpresa">🎉 Surpresa! 🎉</div>
 
+    <script>
+        function mostrarSurpresa() {
+            document.getElementById('surpresa').style.display = 'block';
+
+            // Criar explosão de corações
+            for (let i = 0; i < 50; i++) {
+                criarExplosaoDeCoracoes();
+            }
+        }
+
+        function criarExplosaoDeCoracoes() {
+            const coracoes = ["💙", "🩷"];
+            const coracao = document.createElement("div");
+            coracao.className = "explosao-coracoes";
+            coracao.textContent = coracoes[Math.floor(Math.random() * coracoes.length)];
+
+            // Define posição inicial no botão
+            const botao = document.querySelector("button");
+            const rect = botao.getBoundingClientRect();
+            coracao.style.left = rect.left + rect.width / 2 + "px";
+            coracao.style.top = rect.top + rect.height / 2 + "px";
+
+            // Define direção da explosão (aleatória)
+            const angle = Math.random() * 2 * Math.PI;
+            const distance = Math.random() * 150 + 50;
+            const x = Math.cos(angle) * distance + "px";
+            const y = Math.sin(angle) * distance + "px";
+            coracao.style.setProperty('--x', x);
+            coracao.style.setProperty('--y', y);
+
+            document.body.appendChild(coracao);
+
+            // Remove coração após a explosão
+            setTimeout(() => {
+                coracao.remove();
+            }, 1000);
+        }
   <div id="surpresa">
     <p>Você sabia que me faz feliz todos os dias, só por existir? Tipo, você é tão FODA que eu agradeço ao papai do céu por ter você comigo. Eu amo você MUUUUUUUUUUUUUITO</p>
     <p>Amorzinho, já fazem 9 mesês que estamos juntos e esse número só vai crescer, eu amo você de verdade e eu nunca vou te deixar. Você vai ir para a Itália e isso vai dificultar bastante as coisas, mas, eu jamais vou desistir de você. Fomos feitos um para o outro e juntos ficaremos. Por mais que os dois sejam meio dodói da cabeça e profissionais em machucar um ao outro, ainda sim, a gente se ama porque nós sempre entendemos o que erramos e melhoramos para fazer o outro feliz.</p>
